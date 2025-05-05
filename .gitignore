@@ -1,0 +1,5 @@
+api_key.py
+**gpt**
+__pycache__/
+.venv/
+.log
