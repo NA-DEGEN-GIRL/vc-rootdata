@@ -277,32 +277,3 @@ def main():
 # 실행부
 if __name__ == "__main__":
     main()
-    '''
-    if len(sys.argv) < 2:
-        print("❗ 사용법: python script.py [검색할 프로젝트 이름]")
-        sys.exit(1)
-
-    query_keyword = sys.argv[1].strip().lower()
-    search_payload = {'query': query_keyword}
-
-    res = requests.post(search_url, json=search_payload, headers=search_headers)
-    data = res.json()
-    project_ids = get_project_ids(data)
-
-    if not project_ids:
-        print("해당 키워드로 검색된 프로젝트가 없습니다.")
-    else:
-        printed = False
-        for pid in project_ids:
-            detail = fetch_project_detail(pid)
-            project_name = (detail.get('project_name') or '').strip().lower()
-            if project_name == query_keyword:
-                print_rootdata_project(detail)
-                printed = True
-            # 2. Fuzzy 일치 (fallback)
-            elif fuzz.ratio(project_name, query_keyword) >= PROJECT_FUZZY_THRESHOLD:
-                print_rootdata_project(detail)
-                printed = True
-        if not printed:
-            print("해당 키워드와 유사한 프로젝트가 없습니다.")
-    '''
